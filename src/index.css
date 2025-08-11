@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    /* Purple Brand System */
+    --primary: 267 66% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 267 66% 35%;
+    --primary-light: 267 66% 65%;
+
+    /* Orange Accent System */
+    --accent: 24 95% 57%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 32 95% 67%;
+    --accent-dark: 16 95% 47%;
+
+    /* Educational Purple Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(267 66% 45%), hsl(267 66% 35%));
+    --gradient-card: linear-gradient(145deg, hsl(267 15% 98%), hsl(267 15% 96%));
+    --gradient-accent: linear-gradient(45deg, hsl(24 95% 57%), hsl(32 95% 67%));
+
+    /* Course System Colors */
+    --secondary: 267 15% 96%;
+    --secondary-foreground: 267 20% 25%;
+    --muted: 267 8% 94%;
+    --muted-foreground: 267 10% 45%;
+
+    /* Card & Interface */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Functional Colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 43 96% 56%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders & Inputs */
+    --border: 267 20% 90%;
+    --input: 267 20% 95%;
+    --ring: 267 66% 45%;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 12px -2px hsl(267 66% 45% / 0.1);
+    --shadow-medium: 0 8px 25px -5px hsl(267 66% 45% / 0.15);
+    --shadow-strong: 0 20px 40px -10px hsl(267 66% 45% / 0.25);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Hero Components */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .accent-gradient {
+    background: var(--gradient-accent);
+  }
+
+  /* Course Card Enhancements */
+  .course-card {
+    @apply bg-card rounded-xl p-4 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .selling-fast-badge {
+    @apply bg-accent text-accent-foreground text-xs font-semibold px-2 py-1 rounded-md;
+  }
+
+  .age-button {
+    @apply bg-secondary text-secondary-foreground px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-primary hover:text-primary-foreground;
+  }
+
+  .age-button.active {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  /* Teacher Profile Cards */
+  .teacher-card {
+    @apply text-center p-4 transition-transform hover:scale-105;
+  }
+
+  /* Category Cards */
+  .category-card {
+    @apply bg-gradient-to-br from-accent to-accent-light p-6 rounded-2xl text-accent-foreground transition-transform hover:scale-105;
+  }
+
+  /* Search Component */
+  .hero-search {
+    @apply bg-white rounded-full px-6 py-4 shadow-lg flex items-center gap-4 max-w-2xl mx-auto;
+  }
+
+  /* Time Filter Buttons */
+  .time-filter {
+    @apply bg-secondary text-secondary-foreground px-6 py-3 rounded-xl font-medium transition-all hover:bg-primary hover:text-primary-foreground flex items-center gap-2;
+  }
+
+  .time-filter.active {
+    @apply bg-primary text-primary-foreground;
+  }
+}
